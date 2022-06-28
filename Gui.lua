@@ -14,13 +14,15 @@ local Utility = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
 local AntiAFK = Instance.new("TextButton")
 local UICorner_5 = Instance.new("UICorner")
-local CloseMain = Instance.new("TextButton")
+local farmingf = Instance.new("TextButton")
 local UICorner_6 = Instance.new("UICorner")
 local Credits = Instance.new("TextLabel")
 local UICorner_68 = Instance.new("UICorner")
 local X = Instance.new("TextButton")
 local UICorner_72 = Instance.new("UICorner")
+local StopAFK = Instance.new("TextButton")
 local UICorner_7 = Instance.new("UICorner")
+local UICorner_8 = Instance.new("UICorner")
 local DjGUI = Instance.new("TextButton")
 local OpenUtg = Instance.new("TextButton")
 
@@ -132,7 +134,7 @@ AntiAFK.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
 AntiAFK.Position = UDim2.new(0.0093457941, 0, 0.0329205021, 0)
 AntiAFK.Size = UDim2.new(0, 419, 0, 36)
 AntiAFK.Font = Enum.Font.SourceSansBold
-AntiAFK.Text = "    Anti AFK"
+AntiAFK.Text = "    Anti Kick (For afk)"
 AntiAFK.TextColor3 = Color3.fromRGB(255, 255, 255)
 AntiAFK.TextSize = 20.000
 AntiAFK.TextWrapped = true
@@ -140,24 +142,39 @@ AntiAFK.TextXAlignment = Enum.TextXAlignment.Left
 
 UICorner_5.Parent = AntiAFK
 
-CloseMain.Name = "CloseMain"
-CloseMain.Parent = ScrollingFrame
-CloseMain.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-CloseMain.Position = UDim2.new(0.0093457941, 0, 0.0482666828, 0)
-CloseMain.Size = UDim2.new(0, 419, 0, 36)
-CloseMain.Font = Enum.Font.SourceSansBold
-CloseMain.Text = "    Close Main Menu"
-CloseMain.TextColor3 = Color3.fromRGB(255, 255, 255)
-CloseMain.TextSize = 20.000
-CloseMain.TextWrapped = true
-CloseMain.TextXAlignment = Enum.TextXAlignment.Left
+StopAFK.Name = "StopAFK"
+StopAFK.Parent = ScrollingFrame
+StopAFK.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+StopAFK.Position = UDim2.new(0.0093457941, 0, 0.077888377, 0) 
+StopAFK.Size = UDim2.new(0, 419, 0, 36)
+StopAFK.Font = Enum.Font.SourceSansBold
+StopAFK.Text = "    Stop AFK Farm"
+StopAFK.TextColor3 = Color3.fromRGB(255, 255, 255)
+StopAFK.TextSize = 20.000
+StopAFK.TextWrapped = true
+StopAFK.TextXAlignment = Enum.TextXAlignment.Left
 
-UICorner_6.Parent = CloseMain
+UICorner_8.Parent = StopAFK
+
+
+farmingf.Name = "farmingf"
+farmingf.Parent = ScrollingFrame
+farmingf.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+farmingf.Position = UDim2.new(0.0093457941, 0, 0.063288377, 0)
+farmingf.Size = UDim2.new(0, 419, 0, 36)
+farmingf.Font = Enum.Font.SourceSansBold
+farmingf.Text = "    Afk Farm"
+farmingf.TextColor3 = Color3.fromRGB(255, 255, 255)
+farmingf.TextSize = 20.000
+farmingf.TextWrapped = true
+farmingf.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_7.Parent = farmingf
 
 DjGUI.Name = "DjGUI"
 DjGUI.Parent = ScrollingFrame
 DjGUI.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
-DjGUI.Position = UDim2.new(0.0093457941, 0, 0.063288377, 0)
+DjGUI.Position = UDim2.new(0.0093457941, 0, 0.0482666828, 0) 
 DjGUI.Size = UDim2.new(0, 419, 0, 36)
 DjGUI.Font = Enum.Font.SourceSansBold
 DjGUI.Text = "    DJ Gui"
@@ -166,7 +183,7 @@ DjGUI.TextSize = 20.000
 DjGUI.TextWrapped = true
 DjGUI.TextXAlignment = Enum.TextXAlignment.Left
 
-UICorner_7.Parent = DjGUI
+UICorner_6.Parent = DjGUI
 
 Credits.Name = "Credits"
 Credits.Parent = Main
@@ -282,6 +299,17 @@ local function NJGRIXS_fake_script() -- OPENMENU.LocalScript
 end
 coroutine.wrap(NJGRIXS_fake_script)()
 
+-- Afk Farm start
+
+farmingf.MouseButton1Click:Connect(function()
+   getgenv().farmingrrrr = true;
+while wait() do
+    if getgenv().farmingrrrr == true then
+        game:GetService("ReplicatedStorage").TreasureEvent:FireServer(workspace.Treasures.Treasure5)
+    end
+end 
+end)
+
 MainMenu.MouseButton1Click:Connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Vendetta103/Animal-Sim/main/Main%20menu.lua"))()
 end)
@@ -292,14 +320,6 @@ end)
 
 AntiAFK.MouseButton1Click:Connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Vendetta103/Animal-Sim/main/Anti%20Afk.lua"))()
-end)
-
-CloseMain.MouseButton1Click:connect(function()
-Gameplaydiv:Destroy()
-Theme:Destroy()
-Main:Destroy()
-UI:Destroy()
-Venyx:Destroy()
 end)
 
 DjGUI.MouseButton1Click:Connect(function()
