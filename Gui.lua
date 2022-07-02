@@ -310,6 +310,15 @@ while wait() do
 end 
 end)
 
+StopAFK.MouseButton1Click:Connect(function()
+   getgenv().farmingrrrr = false;
+while wait() do
+    if getgenv().farmingrrrr == true then
+        game:GetService("ReplicatedStorage").TreasureEvent:FireServer(workspace.Treasures.Treasure5)
+    end
+end 
+end)
+
 MainMenu.MouseButton1Click:Connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Vendetta103/Animal-Sim/main/Main%20menu.lua"))()
 end)
